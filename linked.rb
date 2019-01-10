@@ -4,23 +4,17 @@ class LinkedList
     @tail = nil
   end
 
-  def to_s
-    output = ''
-    if @head == nil
-      output = 'nil'
+  def append(node)
+    if @head.nil?
+      @head = node
+      @tail = node
     else
-      node = @head
-      output += "( #{node.value} ) -> "
-      while output.include?('nil') == false do
-        node = node.link
-        output += "( #{node.value} ) -> "
-        output += "nil" if node.link == nil
-      end
+      @tail.link = node
+      @tail = node
     end
-    puts output
   end
 
-  def append(node)
+  def prepend(node)
     if @head.nil?
       @head = node
       @tail = node
@@ -28,6 +22,22 @@ class LinkedList
       node.link = @head
       @head = node
     end
+  end
+
+  def to_s
+    output = ''
+    if @head == nil
+      output = 'nil'
+    else
+      node = @head
+      output += "(#{node.value})-> "
+      until output.include?('nil') do
+        node = node.link
+        output += "(#{node.value})-> "
+        output += "nil" if node.link == nil
+      end
+    end
+    puts output
   end
 end
 
@@ -46,4 +56,8 @@ list = LinkedList.new
 values = ['a', 'b', 'c', 'd', 'e', 'f']
 values.each {|e| list.append(Node.new(e))}
 
-list.to_s # => '( f ) -> ( e ) -> ( d ) -> ( c ) -> ( b ) -> ( a ) -> nil'
+list.to_s # => '(a)-> (b)-> (c)-> (d)-> (e)-> (f)-> nil'
+
+list.prepend(Node.new('X'))
+
+list.to_s # => '(X)-> (a)-> (b)-> (c)-> (d)-> (e)-> (f)-> nil'
