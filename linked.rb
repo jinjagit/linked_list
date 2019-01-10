@@ -4,6 +4,22 @@ class LinkedList
     @tail = nil
   end
 
+  def to_s
+    output = ''
+    if @head == nil
+      output = 'nil'
+    else
+      node = @head
+      output += "( #{node.value} ) -> "
+      while output.include?('nil') == false do
+        node = node.link
+        output += "( #{node.value} ) -> "
+        output += "nil" if node.link == nil
+      end
+    end
+    puts output
+  end
+
   def append(node)
     if @head.nil?
       @head = node
@@ -25,11 +41,9 @@ class Node
 end
 
 
-
 list = LinkedList.new
 
 values = ['a', 'b', 'c', 'd', 'e', 'f']
-
 values.each {|e| list.append(Node.new(e))}
 
-p list
+list.to_s # => '( f ) -> ( e ) -> ( d ) -> ( c ) -> ( b ) -> ( a ) -> nil'
