@@ -1,7 +1,10 @@
 class LinkedList
+  attr_accessor :size
+
   def initialize
     @head = nil
     @tail = nil
+    @size = 0
   end
 
   def append(node)
@@ -12,6 +15,7 @@ class LinkedList
       @tail.link = node
       @tail = node
     end
+    @size += 1
   end
 
   def prepend(node)
@@ -22,6 +26,7 @@ class LinkedList
       node.link = @head
       @head = node
     end
+    @size += 1
   end
 
   def to_s
@@ -62,4 +67,5 @@ list.to_s # => '(a)-> (b)-> (c)-> (d)-> (e)-> (f)-> nil'
 list.prepend(Node.new('X'))
 
 list.to_s # => '(X)-> (a)-> (b)-> (c)-> (d)-> (e)-> (f)-> nil'
+puts "number of list elements: #{list.size}"
 puts
