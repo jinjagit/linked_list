@@ -56,8 +56,10 @@ list = LinkedList.new
 values = ['a', 'b', 'c', 'd', 'e', 'f']
 values.each {|e| list.append(Node.new(e))}
 
+puts
 list.to_s # => '(a)-> (b)-> (c)-> (d)-> (e)-> (f)-> nil'
 
 list.prepend(Node.new('X'))
 
 list.to_s # => '(X)-> (a)-> (b)-> (c)-> (d)-> (e)-> (f)-> nil'
+puts
