@@ -3,7 +3,7 @@ IN PROGRESS: My solution to [Linked List](https://www.theodinproject.com/courses
 You will need two classes:
 
   * LinkedList class, which will represent the full list.
-  * Node class, containing a #value method and a link to the #next_node, set both as nil by default.
+  * Node class, containing a <code>value</code> method and a link to the <code>next_node</code>, set both as nil by default.
 
 Build the following methods in your linked list class:
 
