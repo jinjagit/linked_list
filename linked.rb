@@ -49,7 +49,7 @@ end
 class Node
   attr_accessor :link, :value
 
-  def initialize(value)
+  def initialize(value = nil)
     @value = value
     @link = nil
   end
@@ -58,14 +58,17 @@ end
 
 list = LinkedList.new
 
+list.to_s # => 'nil'
+
 values = ['a', 'b', 'c', 'd', 'e', 'f']
 values.each {|e| list.append(Node.new(e))}
 
 puts
 list.to_s # => '(a)-> (b)-> (c)-> (d)-> (e)-> (f)-> nil'
 
+list.prepend(Node.new) # check can add node with @value == nil
 list.prepend(Node.new('X'))
 
-list.to_s # => '(X)-> (a)-> (b)-> (c)-> (d)-> (e)-> (f)-> nil'
-puts "number of list elements: #{list.size}"
+list.to_s # => '(X)-> ()-> (a)-> (b)-> (c)-> (d)-> (e)-> (f)-> nil'
+puts "list contains #{list.size} elements" # => 'list contains 8 elements'
 puts
