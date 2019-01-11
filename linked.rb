@@ -39,6 +39,12 @@ class LinkedList
     node
   end
 
+  def pop
+    @size -= 1
+    tail = at(@size - 1)
+    tail.link = nil
+  end
+
   def to_s
     output = ''
     if @head == nil
@@ -75,16 +81,17 @@ values = ['a', 'b', 'c', 'd', 'e', 'f']
 values.each {|e| list.append(Node.new(e))}
 
 list.to_s # => '(a)-> (b)-> (c)-> (d)-> (e)-> (f)-> nil'
-
 list.prepend(Node.new) # check can add node with @value == nil
 list.prepend(Node.new('X'))
-
 list.to_s # => '(X)-> ()-> (a)-> (b)-> (c)-> (d)-> (e)-> (f)-> nil'
-puts "list contains #{list.size} elements" # => 'list contains 8 elements'
+puts "list contains #{list.size} nodes" # => 'list contains 8 nodes'
 puts "head node: (#{list.head.value})" # => 'head node: (X)'
 puts "tail node: (#{list.tail.value})" # => 'tail node: (f)'
 puts "node at index 0: (#{list.at(0).value})" # => 'node at index 0: (X)'
 puts "node at index 4: (#{list.at(4).value})" # => 'node at index 4: (c)'
 p list.at(9) # => nil
+list.pop
+list.to_s # => '(X)-> ()-> (a)-> (b)-> (c)-> (d)-> (e)-> nil'
+puts "list contains #{list.size} nodes" # => 'list contains 8 nodes'
 
 puts
