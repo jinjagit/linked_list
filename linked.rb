@@ -13,8 +13,7 @@ class Node
 end
 
 class LinkedList
-  attr_accessor :size
-  attr_reader :head, :tail
+  attr_reader :head, :tail, :size
 
   def initialize
     @head = nil
