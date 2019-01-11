@@ -45,6 +45,16 @@ class LinkedList
     tail.link = nil
   end
 
+  def contains?(value)
+    node = @head
+    found = false
+    until node == nil do
+      found = true if node.value == value
+      node = node.link
+    end
+    found
+  end
+
   def to_s
     output = ''
     if @head == nil
@@ -92,6 +102,8 @@ puts "node at index 4: (#{list.at(4).value})" # => 'node at index 4: (c)'
 p list.at(9) # => nil
 list.pop
 list.to_s # => '(X)-> ()-> (a)-> (b)-> (c)-> (d)-> (e)-> nil'
-puts "list contains #{list.size} nodes" # => 'list contains 8 nodes'
+puts "list contains #{list.size} nodes" # => 'list contains 7 nodes'
+p list.contains?('b') # => true
+p list.contains?('z') # => false
 
 puts
