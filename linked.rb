@@ -30,6 +30,12 @@ class LinkedList
     @size += 1
   end
 
+  def at(index)
+    node = @head
+    index >= @size ? node = nil : index.times { node = node.link }
+    node
+  end
+
   def to_s
     output = ''
     if @head == nil
@@ -74,4 +80,8 @@ list.to_s # => '(X)-> ()-> (a)-> (b)-> (c)-> (d)-> (e)-> (f)-> nil'
 puts "list contains #{list.size} elements" # => 'list contains 8 elements'
 puts "head node: (#{list.head.value})" # => 'head node: (X)'
 puts "tail node: (#{list.tail.value})" # => 'tail node: (f)'
+puts "node at index 0: (#{list.at(0).value})" # => 'node at index 0: (X)'
+puts "node at index 4: (#{list.at(4).value})" # => 'node at index 4: (c)'
+p list.at(9) # => nil
+
 puts
