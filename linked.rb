@@ -1,4 +1,5 @@
-# create and manipulate linked list (each node contains a data value)
+# create and manipulate linked list (each node holds a reference to the
+# next node in the list, or nil if no next node, and to a data value)
 # structure: (head-node) -> (node) -> ... (node) -> (tail-node) -> nil
 
 class LinkedList
