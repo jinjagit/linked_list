@@ -1,3 +1,6 @@
+# create and manipulate linked list (each node contains a data value)
+# structure: (head-node) -> (node) -> ... (node) -> (tail-node) -> nil
+
 class LinkedList
   attr_accessor :size
   attr_reader :head, :tail
