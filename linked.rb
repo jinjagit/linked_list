@@ -1,5 +1,6 @@
 class LinkedList
   attr_accessor :size
+  attr_reader :head, :tail
 
   def initialize
     @head = nil
@@ -58,12 +59,12 @@ end
 
 list = LinkedList.new
 
+puts
 list.to_s # => 'nil'
 
 values = ['a', 'b', 'c', 'd', 'e', 'f']
 values.each {|e| list.append(Node.new(e))}
 
-puts
 list.to_s # => '(a)-> (b)-> (c)-> (d)-> (e)-> (f)-> nil'
 
 list.prepend(Node.new) # check can add node with @value == nil
@@ -71,4 +72,6 @@ list.prepend(Node.new('X'))
 
 list.to_s # => '(X)-> ()-> (a)-> (b)-> (c)-> (d)-> (e)-> (f)-> nil'
 puts "list contains #{list.size} elements" # => 'list contains 8 elements'
+puts "head node: (#{list.head.value})" # => 'head node: (X)'
+puts "tail node: (#{list.tail.value})" # => 'tail node: (f)'
 puts
