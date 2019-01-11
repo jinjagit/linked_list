@@ -135,7 +135,8 @@ puts "head node: (#{list.head.value})" # => head node: (X)
 puts "tail node: (#{list.tail.value})" # => tail node: (f)
 puts "node at index 0: (#{list.at(0).value})" # => node at index 0: (X)
 puts "node at index 4: (#{list.at(4).value})" # => node at index 4: (c)
-p list.at(9) # => nil
+print "node at index 9: "
+p list.at(9) # => node at index 9: nil
 list.pop
 list.to_s # => (X)-> ()-> (a)-> (b)-> (c)-> (d)-> (e)-> nil
 puts "tail node: (#{list.tail.value})" # => tail node: (f)
