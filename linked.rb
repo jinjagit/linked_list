@@ -41,8 +41,8 @@ class LinkedList
 
   def pop
     @size -= 1
-    tail = at(@size - 1)
-    tail.link = nil
+    @tail = at(@size - 1)
+    @tail.link = nil
   end
 
   def contains?(value)
@@ -59,6 +59,21 @@ class LinkedList
       index += 1
     end
     result
+  end
+
+  def insert_at(index, data)
+    if index <= @size
+      node = Node.new(data)
+      if index == 0
+        prepend(node)
+      elsif index == @size
+        append(node)
+      else
+        node.link = at(index)
+        at(index - 1).link = node
+      end
+      @size += 1
+    end
   end
 
   def to_s
@@ -99,6 +114,7 @@ values.each {|e| list.append(Node.new(e))}
 list.to_s # => '(a)-> (b)-> (c)-> (d)-> (e)-> (f)-> nil'
 list.prepend(Node.new) # check can add node with @value == nil
 list.prepend(Node.new('X'))
+
 list.to_s # => '(X)-> ()-> (a)-> (b)-> (c)-> (d)-> (e)-> (f)-> nil'
 puts "list contains #{list.size} nodes" # => 'list contains 8 nodes'
 puts "head node: (#{list.head.value})" # => 'head node: (X)'
@@ -108,6 +124,7 @@ puts "node at index 4: (#{list.at(4).value})" # => 'node at index 4: (c)'
 p list.at(9) # => nil
 list.pop
 list.to_s # => '(X)-> ()-> (a)-> (b)-> (c)-> (d)-> (e)-> nil'
+puts "tail node: (#{list.tail.value})" # => 'tail node: (f)'
 puts "list contains #{list.size} nodes" # => 'list contains 7 nodes'
 p list.contains?('b') # => true
 p list.contains?('z') # => false
@@ -115,5 +132,7 @@ print "index of node with value 'G': "
 p list.find('G') # => 'index of node with value 'G': nil'
 print "index of node with value 'b': "
 p list.find('b') # => 'index of node with value 'b': 3'
+list.insert_at(4, 'OoO')
+list.to_s # => '(X)-> ()-> (a)-> (b)-> (OoO)-> (c)-> (d)-> (e)-> nil'
 
 puts
