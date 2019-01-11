@@ -1,4 +1,4 @@
-IN PROGRESS: My solution to [Linked List](https://www.theodinproject.com/courses/ruby-programming/lessons/linked-lists?ref=lnav) exercise, Odin Project.
+Simon Tharby's solution to [Linked List](https://www.theodinproject.com/courses/ruby-programming/lessons/linked-lists?ref=lnav) exercise, Odin Project.
 
 You will need two classes:
 
@@ -18,7 +18,7 @@ Build the following methods in your linked list class:
   * <code>find(data)</code> returns the index of the node containing data, or nil if not found.
   * <code>to_s</code> represent your LinkedList objects as strings, so you can print them out and preview them in the console. The format should be: ( data ) -> ( data ) -> ( data ) -> nil
 
-### Extra Credit
+### Extra Credit (Done)
 
   * <code>insert_at(index)</code> that inserts the node at the given index
   * <code>remove_at(index)</code> that removes the node at the given index. (You will need to update the links of your nodes in the list when you remove a node.)
