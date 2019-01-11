@@ -46,13 +46,19 @@ class LinkedList
   end
 
   def contains?(value)
+    find(value) == nil ? false : true
+  end
+
+  def find(data)
     node = @head
-    found = false
-    until node == nil do
-      found = true if node.value == value
+    result = nil
+    index = 0
+    until node == nil || result != nil do
+      result = index if node.value == data
       node = node.link
+      index += 1
     end
-    found
+    result
   end
 
   def to_s
@@ -105,5 +111,9 @@ list.to_s # => '(X)-> ()-> (a)-> (b)-> (c)-> (d)-> (e)-> nil'
 puts "list contains #{list.size} nodes" # => 'list contains 7 nodes'
 p list.contains?('b') # => true
 p list.contains?('z') # => false
+print "index of node with value 'G': "
+p list.find('G') # => 'index of node with value 'G': nil'
+print "index of node with value 'b': "
+p list.find('b') # => 'index of node with value 'b': 3'
 
 puts
