@@ -2,6 +2,15 @@
 # next node in the list, or nil if no next node, and to a data value)
 # structure: (head-node) -> (node) -> ... (node) -> (tail-node) -> nil
 
+class Node
+  attr_accessor :link, :value
+
+  def initialize(value = nil)
+    @value = value
+    @link = nil
+  end
+end
+
 class LinkedList
   attr_accessor :size
   attr_reader :head, :tail
@@ -107,15 +116,6 @@ class LinkedList
       end
     end
     puts output
-  end
-end
-
-class Node
-  attr_accessor :link, :value
-
-  def initialize(value = nil)
-    @value = value
-    @link = nil
   end
 end
 
