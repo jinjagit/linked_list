@@ -3,7 +3,8 @@
 # structure: (head-node) -> (node) -> ... (node) -> (tail-node) -> nil
 
 class Node
-  attr_accessor :link, :value
+  attr_accessor :link
+  attr_reader :value
 
   def initialize(value = nil)
     @value = value
